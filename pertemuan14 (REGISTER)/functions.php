@@ -183,30 +183,3 @@ function search($pencarian)
 
   return query($query);
 }
-
-// function register & function ini menerima inputan $data yang dikirim oleh $_POST dan ditangkap kesini
-
-function register($data)
-{
-  // dengan cara tangkap dulu data" username & passwordnya dan kemudian dimasukkan ke dalam variabel $username, $password, $pass_verification
-  global $db_conn;
-
-  // artinya : ambil data dari $_POST dan diterima oleh $_data dan dimasukkan ke sini
-  // strtolower : memaksa karakter yang diinputkan menjadi huruf kecil semua
-  // stripslashes : menghilangkan backslash yang diinputkan oleh user
-  $username = strtolower(stripslashes($data["username"]));
-
-  // mysqli_real_escape_string : memungkinkan user untuk memasukkan tanda kutip, dan tanda kutip tersebut akan disimpan di database secara aman
-  $password = mysqli_real_escape_string($db_conn, $data["password"]);
-  $pass_verification = mysqli_real_escape_string($db_conn, $data["pass_verification"]);
-
-
-  // cek konfirmasi password
-  if ($password !== $pass_verification) {
-    echo "<script>
-            alert('password yang anda masukkan tidak sesuai !');
-          </script>
-          
-          ";
-  };
-}

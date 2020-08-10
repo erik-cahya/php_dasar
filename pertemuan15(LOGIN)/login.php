@@ -2,6 +2,7 @@
 require 'functions.php';
 
 if (isset($_POST["login"])) {
+
     $username = $_POST["username"];
     $password = $_POST["password"];
 
@@ -18,6 +19,7 @@ if (isset($_POST["login"])) {
         // parameter ada 2 : yaitu string yang belum diacak, dan string yang sudah diacak(hash)
         if (password_verify($password, $row["password"])) {
             // header : adalah fungsi redirect ke halaman tertentu
+            // exit : berfungsi agar syntax php dibawahnya tidak dijalankan
             header("Location: index.php");
             exit;
         }

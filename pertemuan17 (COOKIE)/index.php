@@ -98,11 +98,6 @@ if (isset($_POST["cari"])) {
         </td>
       </tbody>
 
-      <ul>
-        <label> Username </label>
-          <input type="input" name="id" id="id">
-      </ul>
-
 
       <?php $number++; ?>
     <?php endforeach; ?>
